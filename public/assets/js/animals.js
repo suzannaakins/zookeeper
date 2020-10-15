@@ -31,6 +31,18 @@ const getAnimals = (formData = {}) => {
 
   console.log(queryUrl);
 
+  //make request for new animal added by user
+  fetch(queryUrl)
+    .then(response => {
+      if (!response.ok) {
+        return alert('Error: ' + response.statusText);
+      }
+      return response.json();
+    })
+    .then(animalData => {
+      console.log(animalData);
+      printResults(animalData);
+    });
 };
 
 const handleGetAnimalsSubmit = event => {

@@ -91,9 +91,19 @@ app.get('/api/animals/:id', (req, res) => {
     }
 });
 
-//serve public index page 
+//serve public index html page 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+//serve animals html page
+app.get('/animals', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/animals.html'));
+});
+
+//serve zookeepers html page
+app.get('/zookeepers', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/zookeepers.html'));
 });
 
 app.post('/api/animals', (req, res) => {
